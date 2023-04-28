@@ -9,14 +9,14 @@ El 'Polimorfismo' suele considerarse el tercer pilar de la programación orienta
 * Las clases base pueden definir e implementar métodosvirtuales, y las clases derivadas pueden invalidarlos, lo que significa que pueden proporcionar su propia definición e implementación. En tiempo de ejecución, cuando el código de cliente llama al método, CLR busca el tipo en tiempo de ejecución del objeto e invoca esa invalidación del método virtual. En el código fuente puede llamar a un método en una clase base y hacer que se ejecute una versión del método de la clase derivada. [Polimorfismo - Microsoft Learn](https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/object-oriented/polymorphism)
 
 ## Explicación de código:
-Este es un código JavaScript que define tres clases: "Figura", "FiguraInteractiva" y "Boton". "Figura" es la clase principal, que define una forma básica con propiedades como posición, altura, anchura y color de relleno. "FiguraInteractiva" es una subclase de "Figura" que agrega un método "interactuar()", que se puede usar para interactuar con la forma de diferentes maneras. "Boton" es una subclase de "FiguraInteractiva" que representa un botón con propiedades adicionales como texto y acción.
+La clase padre se llama Figura y tiene un constructor que inicializa los atributos de la figura, como su posición (como un objeto vectorial de p5.js), su altura y su ancho, así como los valores de relleno para su color.
 
-En la función "setup()", se crea el lienzo con un tamaño de 400 por 400 píxeles. Se crea un nuevo objeto "Boton" llamado "rectangulo" con una posición de (100, 100), un tamaño de 50 por 100 píxeles y texto "Haz click". La acción del botón se define mediante una función anónima que registra un mensaje en la consola cuando se hace clic.
+La clase FiguraInteractiva hereda de Figura y agrega un método llamado interactuar, que será implementado de forma diferente para cada una de sus clases hijas.
 
-Se utiliza la función "setTimeout()" para llamar al método "deshabilitar()" del objeto "rectangulo" después de un retraso de 10 segundos (especificado por la constante "tiempoLimite"). El método "deshabilitar()" establece el color de relleno del botón en gris, cambia su acción para registrar un mensaje sobre el tiempo agotado y deshabilita su capacidad para moverse haciendo clic.
+La clase hija Boton hereda de FiguraInteractiva y agrega atributos específicos para un botón, como un texto y una acción a realizar cuando se hace clic en el botón. Además, tiene un contador inicializado en cero, que se incrementa cada vez que se hace clic en el botón. También tiene métodos para dibujar el botón, interactuar con él y moverlo a una posición aleatoria.
 
-En la función "draw()", el fondo se establece en gris claro (valor RGB 220). Si el objeto "rectangulo" existe (es decir, no es nulo), se llama a su método "draw()" para dibujar el botón en el lienzo.
+En el código principal, se crea una instancia de Boton en el método setup y se llama a su método deshabilitar después de un tiempo determinado. En el método draw, se dibuja el botón si existe una instancia de Boton, y en el método mousePressed, se llama al método interactuar del botón si existe una instancia de Boton y si el clic del mouse está dentro del área del botón.
 
-La función "mousePressed()" se llama cada vez que se presiona el botón del ratón. Si el objeto "rectangulo" existe, se llama a su método "interactuar()" para comprobar si el ratón está sobre el botón y, si es así, realizar su acción (es decir, registrar un mensaje y mover el botón a una posición aleatoria).
+En general, este código muestra cómo se puede utilizar la herencia y la polimorfismo en JavaScript para crear objetos que tienen comportamientos específicos, pero que comparten características comunes. Además, se demuestra cómo se pueden utilizar los métodos de temporizador y eventos del mouse en p5.js para hacer interacciones interactivas en el navegador web.
 
 ## Link al código:
