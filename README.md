@@ -18,3 +18,5 @@ Se utiliza la función "setTimeout()" para llamar al método "deshabilitar()" de
 En la función "draw()", el fondo se establece en gris claro (valor RGB 220). Si el objeto "rectangulo" existe (es decir, no es nulo), se llama a su método "draw()" para dibujar el botón en el lienzo.
 
 La función "mousePressed()" se llama cada vez que se presiona el botón del ratón. Si el objeto "rectangulo" existe, se llama a su método "interactuar()" para comprobar si el ratón está sobre el botón y, si es así, realizar su acción (es decir, registrar un mensaje y mover el botón a una posición aleatoria).
+
+## Link al código:
