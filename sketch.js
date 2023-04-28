@@ -21,6 +21,7 @@ class Boton extends FiguraInteractiva {
     super(x, y, alto, ancho);
     this.texto = texto;
     this.accion = accion;
+    this.contador = 0; // contador inicializado en cero
   }
   
   draw() {
@@ -30,6 +31,7 @@ class Boton extends FiguraInteractiva {
     fill(255);
     textAlign(CENTER);
     text(this.texto, this.posicion.x + this.ancho / 2, this.posicion.y + this.alto / 2);
+    text("Contador: " + this.contador, this.posicion.x + this.ancho / 2, this.posicion.y + this.alto / 2 + 20); // dibujar contador
   }
 
   interactuar() {
@@ -37,6 +39,7 @@ class Boton extends FiguraInteractiva {
         mouseY >= this.posicion.y && mouseY <= this.posicion.y + this.alto) {
       this.accion();
       this.mover();
+      this.contador++; // incrementar contador
     }
   }
 
